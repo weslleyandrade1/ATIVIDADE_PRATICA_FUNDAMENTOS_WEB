@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weslley Jessé | Engenheiro de Dados Jr</title>
+  <meta name="description" content="Portfólio de Weslley Jessé Andrade da Silva, engenheiro de dados júnior em Campina Grande (PB): Data Warehouse, pipelines ELT, dbt e Airflow.">
+  <meta name="theme-color" content="#F2F4EF">
+
+  <!-- Favicon embutido (monograma WJ). Para usar um arquivo seu: <link rel="icon" href="img/favicon.png"> -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2317262B'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%23F2F4EF'%3EWJ%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+
+  <!-- Sem JavaScript, o diagrama do pipeline aparece já concluído -->
+  <noscript>
+    <style>
+      .tarefa .caixa { stroke: #1F8A57; }
+      .tarefa .marca { fill: #1F8A57; }
+      .tarefa .check { opacity: 1; }
+      .aresta path { stroke: #1F8A57; }
+      .aresta polygon { fill: #1F8A57; }
+      .dag-status, .dag-acao { display: none; }
+    </style>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</head>
+
+<!--
+  ============================================================
+  COMO PERSONALIZAR (procure pelos comentários "TROQUE AQUI")
+  ------------------------------------------------------------
+  Imagens (todas opcionais; se o arquivo não existir, o site
+  mostra um visual substituto e não quebra):
+    img/perfil.jpg          -> sua foto de perfil (proporção 4:5)
+    img/projeto-dw.png      -> imagem do projeto 1
+    img/projeto-ingestao.png-> imagem do projeto 2
+    img/projeto-relatorios.png -> imagem do projeto 3
+  Documento opcional:
+    docs/curriculo.pdf      -> botão "Baixar currículo"
+  Links: LinkedIn, GitHub e repositórios dos projetos.
+  ============================================================
+-->
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="topo">
+    <div class="miolo topo-interno">
+      <a class="marca-site" href="#sobre">Weslley Jessé</a>
+      <nav aria-label="Principal">
+        <ul class="menu">
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#formacao">Formação</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ===================== SOBRE MIM ===================== -->
+    <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
+      <div class="miolo">
+
+        <div class="hero">
+          <div class="hero-texto">
+            <h1>Weslley Jessé Andrade da Silva</h1>
+            <p class="hero-cargo">Engenheiro de Dados Jr, especialista em ELT, dbt e Airflow</p>
+            <p class="hero-lead">Levo dados de várias fontes até os dashboards da gestão. Construo Data Warehouses e pipelines ELT para telecomunicações, com foco em escalabilidade, automação e governança de dados.</p>
+            <div class="acoes">
+              <a class="botao" href="#portfolio">Ver portfólio</a>
+              <a class="botao botao-contorno" href="#contato">Entrar em contato</a>
+              <!-- TROQUE AQUI: coloque seu PDF em docs/curriculo.pdf (ou apague esta linha) -->
+              <a class="link-simples" href="docs/curriculo.pdf" download>Baixar currículo (PDF)</a>
+            </div>
+          </div>
+
+          <!-- Diagrama de um pipeline (elemento de destaque). O JavaScript executa as tarefas em sequência. -->
+          <div class="dag" data-dag>
+            <div class="dag-topo">
+              <span class="dag-nome">dag: telecom_dw_diario</span>
+              <span class="dag-status" data-dag-status data-estado="pendente" role="status">Aguardando</span>
+            </div>
+            <div class="dag-grafico">
+              <svg viewBox="0 0 440 380" role="img" aria-labelledby="dag-titulo dag-desc">
+                <title id="dag-titulo">Fluxo de um pipeline ELT</title>
+                <desc id="dag-desc">Duas extrações, uma de APIs e outra de bancos legados, alimentam a carga no PostgreSQL. Depois vêm o dbt run, o dbt test e a atualização do TOTVS Analytics.</desc>
+
+                <g class="aresta" data-de="1">
+                  <path d="M110 60 C110 78 220 74 220 92"/>
+                  <path d="M330 60 C330 78 220 74 220 92"/>
+                  <polygon points="212,83 228,83 220,92"/>
+                </g>
+                <g class="aresta" data-de="2">
+                  <path d="M220 136 V168"/>
+                  <polygon points="212,159 228,159 220,168"/>
+                </g>
+                <g class="aresta" data-de="3">
+                  <path d="M220 212 V244"/>
+                  <polygon points="212,235 228,235 220,244"/>
+                </g>
+                <g class="aresta" data-de="4">
+                  <path d="M220 288 V320"/>
+                  <polygon points="212,311 228,311 220,320"/>
+                </g>
+
+                <g class="tarefa" data-etapa="1" transform="translate(20 16)">
+                  <rect class="caixa" width="180" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">extrair_apis</text>
+                </g>
+                <g class="tarefa" data-etapa="1" transform="translate(240 16)">
+                  <rect class="caixa" width="180" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">extrair_legado</text>
+                </g>
+                <g class="tarefa" data-etapa="2" transform="translate(115 92)">
+                  <rect class="caixa" width="210" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">carregar_postgres</text>
+                </g>
+                <g class="tarefa" data-etapa="3" transform="translate(115 168)">
+                  <rect class="caixa" width="210" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">dbt_run</text>
+                </g>
+                <g class="tarefa" data-etapa="4" transform="translate(115 244)">
+                  <rect class="caixa" width="210" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">dbt_test</text>
+                </g>
+                <g class="tarefa" data-etapa="5" transform="translate(115 320)">
+                  <rect class="caixa" width="210" height="44" rx="4"/>
+                  <circle class="marca" cx="22" cy="22" r="8"/>
+                  <path class="check" d="M18 22.5 l3 3 l5.5 -6.5"/>
+                  <text x="40" y="27">atualizar_totvs</text>
+                </g>
+              </svg>
+            </div>
+            <div class="dag-rodape dag-acao">
+              <span>Ilustração do fluxo do meu Data Warehouse.</span>
+              <button class="botao botao-contorno botao-pequeno" type="button" data-dag-repetir>Executar de novo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sobre">
+          <!-- TROQUE AQUI: salve sua foto em img/perfil.jpg. Sem o arquivo, aparecem as iniciais "WJ". -->
+          <figure class="foto" data-imagem-opcional>
+            <span class="foto-iniciais" aria-hidden="true">WJ</span>
+            <img src="img/perfil.jpg" alt="Foto de Weslley Jessé Andrade da Silva" width="480" height="600">
+          </figure>
+
+          <div class="sobre-texto">
+            <h2 id="titulo-sobre">Sobre mim</h2>
+            <p>Sou analista de BI na Proxxima Telecomunicações, em Campina Grande (PB), e estou migrando da liderança operacional para a engenharia de dados. Entrei na empresa como estagiário, em 2023, automatizando cargas de dados com Python e SQL. Na equipe de BI, projetei e implementei do zero um Data Warehouse em PostgreSQL, com transformações em dbt e ingestão orquestrada pelo Airflow.</p>
+            <p>Antes disso, passei mais de três anos no AeC Contact Center, de atendente de retenção a supervisor de uma equipe de 30 pessoas. Lá aprendi a usar indicadores para achar gargalos e melhorar a operação, e é esse olhar de negócio que levo para os pipelines.</p>
+
+            <dl class="fatos">
+              <div><dt>Onde</dt><dd>Campina Grande, PB</dd></div>
+              <div><dt>Atuação</dt><dd>Analista de Sistemas BI Jr., Proxxima Telecomunicações</dd></div>
+              <div><dt>Estudando</dt><dd>Ciência de Dados na UNINTER, previsão 2026</dd></div>
+            </dl>
+
+            <h3 class="competencias-titulo">Competências técnicas</h3>
+            <dl class="competencias">
+              <div>
+                <dt>Linguagens e processamento</dt>
+                <dd>Python (Pandas, NumPy), SQL (PostgreSQL, Oracle), PySpark, pipelines ELT</dd>
+              </div>
+              <div>
+                <dt>Orquestração e transformação</dt>
+                <dd>Apache Airflow, dbt (data build tool), automação de workflows</dd>
+              </div>
+              <div>
+                <dt>Bancos de dados e DW</dt>
+                <dd>Modelagem dimensional (Star Schema, Kimball), PostgreSQL, Data Warehouse, gestão de bancos de dados</dd>
+              </div>
+              <div>
+                <dt>Visualização e negócio</dt>
+                <dd>Power BI, TOTVS Analytics, dashboards estratégicos, análise de KPIs</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== FORMAÇÃO ===================== -->
+    <section class="secao secao-alt" id="formacao" aria-labelledby="titulo-formacao">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="titulo-formacao">Formação</h2>
+          <p class="secao-intro">Onde estudei e por onde passei até chegar à engenharia de dados.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>Formação acadêmica</h3>
+          <ol class="linha-tempo">
+            <li class="etapa etapa-atual">
+              <p class="etapa-data">Previsão 2026</p>
+              <div class="etapa-corpo">
+                <h4>Ciência de Dados (Graduação)</h4>
+                <p class="etapa-local">UNINTER, Campina Grande, PB</p>
+                <p>Foco em Engenharia de Dados, Business Intelligence, Machine Learning e Estrutura de Dados.</p>
+              </div>
+            </li>
+            <li class="etapa">
+              <p class="etapa-data">5 períodos cursados</p>
+              <div class="etapa-corpo">
+                <h4>Engenharia de Computação (incompleto)</h4>
+                <p class="etapa-local">Instituto Federal da Paraíba, Campina Grande, PB</p>
+                <p>Base sólida em arquitetura de computadores, lógica de programação e hardware.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="grupo">
+          <h3>Experiência profissional</h3>
+          <ol class="linha-tempo">
+            <li class="etapa etapa-atual">
+              <p class="etapa-data">Jan 2024 até hoje</p>
+              <div class="etapa-corpo">
+                <h4>Analista de Sistemas BI Jr.</h4>
+                <p class="etapa-local">Proxxima Telecomunicações, Campina Grande, PB</p>
+                <ul>
+                  <li>Arquitetei e implementei um Data Warehouse em PostgreSQL seguindo a metodologia ELT, centralizando dados de múltiplas fontes e otimizando a governança.</li>
+                  <li>Implementei transformações modulares com dbt, garantindo versionamento e qualidade das tabelas analíticas para o setor de BI.</li>
+                  <li>Desenvolvi e orquestrei pipelines de integração com Apache Airflow, reduzindo falhas de atualização e automatizando o fluxo de informações para o TOTVS Analytics.</li>
+                  <li>Otimizei rotinas de processamento e reduzi a latência de relatórios críticos de horas para minutos com modelagem dimensional eficiente.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etapa">
+              <p class="etapa-data">Mar 2023 a Dez 2023</p>
+              <div class="etapa-corpo">
+                <h4>Estagiário de Analista de Sistemas BI</h4>
+                <p class="etapa-local">Proxxima Telecomunicações, Campina Grande, PB</p>
+                <ul>
+                  <li>Automatizei a carga de dados brutos com scripts Python e SQL, eliminando processos manuais e aumentando a confiabilidade das bases em 40%.</li>
+                  <li>Dominei a manipulação de grandes volumes de dados via SQL, com consultas complexas para higienização e preparação de dados no DW.</li>
+                  <li>Auxiliei na manutenção do ecossistema de BI, garantindo a disponibilidade de dashboards estratégicos para a gestão.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etapa">
+              <p class="etapa-data">Jun 2020 a Mai 2022</p>
+              <div class="etapa-corpo">
+                <h4>Supervisor de Operações</h4>
+                <p class="etapa-local">AeC Contact Center, Campina Grande, PB</p>
+                <ul>
+                  <li>Liderei uma equipe de 30 colaboradores e usei análise de dados de desempenho para elevar o atingimento de metas operacionais em 25%.</li>
+                  <li>Fomentei a cultura data-driven na operação, usando indicadores para identificar gargalos e implementar melhorias contínuas.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etapa">
+              <p class="etapa-data">Abr 2019 a Mai 2020</p>
+              <div class="etapa-corpo">
+                <h4>Atendente de Operações (Retenção e Tickets)</h4>
+                <p class="etapa-local">AeC Contact Center (Claro Brasil e 99 App)</p>
+                <ul>
+                  <li>Atuei na retenção de clientes e na resolução de tickets críticos, desenvolvendo visão analítica sobre o comportamento do consumidor.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PORTFÓLIO ===================== -->
+    <section class="secao" id="portfolio" aria-labelledby="titulo-portfolio">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="titulo-portfolio">Portfólio</h2>
+          <p class="secao-intro">Três trabalhos que mostram como penso um pipeline, da ingestão até a camada analítica.</p>
+        </div>
+
+        <div class="projetos">
+
+          <article class="projeto">
+            <!-- TROQUE AQUI: imagem opcional em img/projeto-dw.png (diagrama, print do dbt docs, etc.) -->
+            <figure class="projeto-midia" data-imagem-opcional>
+              <div class="midia-vazia" aria-hidden="true">PostgreSQL, dbt e Airflow</div>
+              <img src="img/projeto-dw.png" alt="Diagrama do Data Warehouse de telecomunicações" width="800" height="500" loading="lazy">
+            </figure>
+            <div class="projeto-texto">
+              <h3>Data Warehouse Telecom (ELT)</h3>
+              <p>Modelei e executei um Data Warehouse para métricas de churn e vendas no setor de telecomunicações. O dbt cuida da camada de transformação, com versionamento e qualidade das tabelas, e o Airflow orquestra a ingestão e abastece o TOTVS Analytics. O resultado: dados de várias fontes num só lugar e menos falhas de atualização.</p>
+              <ul class="ferramentas">
+                <li>PostgreSQL</li>
+                <li>dbt</li>
+                <li>Apache Airflow</li>
+                <li>ELT</li>
+              </ul>
+              <!-- TROQUE AQUI: link do repositório deste projeto -->
+              <p class="projeto-links"><a href="https://github.com/SEU-USUARIO/dw-telecom-elt" target="_blank" rel="noopener">Ver código no GitHub</a></p>
+            </div>
+          </article>
+
+          <article class="projeto">
+            <!-- TROQUE AQUI: imagem opcional em img/projeto-ingestao.png -->
+            <figure class="projeto-midia" data-imagem-opcional>
+              <div class="midia-vazia" aria-hidden="true">Python e PostgreSQL</div>
+              <img src="img/projeto-ingestao.png" alt="Fluxo de ingestão de dados com Python" width="800" height="500" loading="lazy">
+            </figure>
+            <div class="projeto-texto">
+              <h3>Automação de pipelines de ingestão</h3>
+              <p>Fluxos em Python que extraem dados de APIs e de bancos legados e carregam tudo direto no PostgreSQL, prontos para análise. Fontes diferentes passam a chegar ao mesmo ambiente por um processo automatizado.</p>
+              <ul class="ferramentas">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li>SQL</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <!-- TROQUE AQUI: link do repositório deste projeto -->
+              <p class="projeto-links"><a href="https://github.com/SEU-USUARIO/pipelines-ingestao" target="_blank" rel="noopener">Ver código no GitHub</a></p>
+            </div>
+          </article>
+
+          <article class="projeto">
+            <!-- TROQUE AQUI: imagem opcional em img/projeto-relatorios.png (ex.: print de um dashboard) -->
+            <figure class="projeto-midia" data-imagem-opcional>
+              <div class="midia-vazia" aria-hidden="true">Modelagem dimensional</div>
+              <img src="img/projeto-relatorios.png" alt="Modelo dimensional em Star Schema" width="800" height="500" loading="lazy">
+            </figure>
+            <div class="projeto-texto">
+              <h3>Relatórios críticos: de horas para minutos</h3>
+              <p>Revisei as rotinas de processamento e a modelagem dos dados por trás dos relatórios críticos de BI. Com modelagem dimensional eficiente, a latência caiu de horas para minutos.</p>
+              <ul class="ferramentas">
+                <li>SQL</li>
+                <li>PostgreSQL</li>
+                <li>Star Schema</li>
+                <li>Kimball</li>
+              </ul>
+              <!-- TROQUE AQUI: link do repositório deste projeto (ou apague esta linha) -->
+              <p class="projeto-links"><a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">Ver meu GitHub</a></p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="secao secao-alt" id="contato" aria-labelledby="titulo-contato">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="titulo-contato">Contato</h2>
+          <p class="secao-intro">Aberto a conversas sobre vagas e projetos em engenharia de dados. Escreva pelo formulário ou use um dos contatos abaixo.</p>
+        </div>
+
+        <div class="contato">
+          <ul class="contatos">
+            <li>
+              <span class="rotulo">E-mail</span>
+              <a href="mailto:wesleyandradejp2@gmail.com">wesleyandradejp2@gmail.com</a>
+            </li>
+            <li>
+              <span class="rotulo">Telefone e WhatsApp</span>
+              <a href="https://wa.me/5583999007324" target="_blank" rel="noopener">+55 83 99900-7324</a>
+            </li>
+            <li>
+              <span class="rotulo">Local</span>
+              <span>Campina Grande, PB</span>
+            </li>
+            <li>
+              <span class="rotulo">LinkedIn</span>
+              <!-- TROQUE AQUI: seu perfil do LinkedIn -->
+              <a href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" rel="noopener">linkedin.com/in/SEU-PERFIL</a>
+            </li>
+            <li>
+              <span class="rotulo">GitHub</span>
+              <!-- TROQUE AQUI: seu usuário do GitHub -->
+              <a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">github.com/SEU-USUARIO</a>
+            </li>
+          </ul>
+
+          <!-- Sem JavaScript, o envio cai no cliente de e-mail. Com JavaScript, há validação e a mensagem já vai preenchida. -->
+          <form class="formulario" id="form-contato" action="mailto:wesleyandradejp2@gmail.com" method="post" enctype="text/plain">
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+              <p class="erro" id="erro-nome"></p>
+            </div>
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+              <p class="erro" id="erro-email"></p>
+            </div>
+            <div class="campo">
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" name="assunto" required aria-describedby="erro-assunto">
+              <p class="erro" id="erro-assunto"></p>
+            </div>
+            <div class="campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="6" required aria-describedby="erro-mensagem"></textarea>
+              <p class="erro" id="erro-mensagem"></p>
+            </div>
+            <p class="form-status" role="status" data-form-status></p>
+            <div>
+              <button class="botao" type="submit">Enviar mensagem</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="miolo rodape-interno">
+      <p>&copy; <span data-ano>2026</span> Weslley Jessé Andrade da Silva</p>
+      <p>Campina Grande, Paraíba</p>
+    </div>
+  </footer>
+</body>
+</html>
